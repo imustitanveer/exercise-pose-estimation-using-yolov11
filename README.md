@@ -36,11 +36,11 @@ Currently supports:
 ## 📂 Project Structure
 
 ```bash
-pose-rep/
-├── core/
-│   ├── angle_utils.py         # Angle calculations
+pose-estimation-using-yolov11/
+├── utils/
+│   ├── angle.py               # Angle calculations
 │   ├── config.py              # Exercise-specific metadata
-│   ├── plot_utils.py          # Keypoint + skeleton plotting
+│   ├── plot.py                # Keypoint + skeleton plotting
 ├── main.py                    # Entry point for video inference
 ├── requirements.txt           # Python dependencies
 └── README.md
