@@ -16,5 +16,11 @@ sport_list = {
         'right_points_idx': [12, 14, 16],
         'maintaining': 85,
         'relaxing': 140
+    },
+    'bicep_curl': {
+        'left_points_idx': [11, 13, 15],
+        'right_points_idx': [12, 14, 16],
+        'maintaining': 45,
+        'relaxing': 160
     }
 }
