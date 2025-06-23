@@ -1,3 +1,6 @@
 ultralytics
 numpy
 opencv-python
+fastapi
+uvicorn
+websockets

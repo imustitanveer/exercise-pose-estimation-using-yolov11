@@ -18,9 +18,9 @@ sport_list = {
         'relaxing': 140
     },
     'bicep_curl': {
-        'left_points_idx': [11, 13, 15],
+        'left_points_idx':  [11, 13, 15],
         'right_points_idx': [12, 14, 16],
-        'maintaining': 45,
-        'relaxing': 160
+        'maintaining': 70,      # flex threshold
+        'relaxing':   150       # extend threshold
     }
 }
