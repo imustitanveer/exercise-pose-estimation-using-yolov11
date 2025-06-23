@@ -12,7 +12,7 @@ from fastapi import FastAPI, WebSocket, WebSocketDisconnect
 from ultralytics import YOLO
 
 from config import sport_list
-from utils.angle import calculate_angle_cosine     # <- direct fn import
+from utils.angle import calculate_angle_cosine
 from utils.plot import plot
 from utils.visual import put_text
 
@@ -30,7 +30,7 @@ def pyify(o):
 
 # ── initialise FastAPI & model
 app   = FastAPI(title="Pose-rep API")
-model = YOLO("yolo11n-pose.pt")         # load once at startup
+model = YOLO("yolo11n-pose.pt")
 
 
 # ─────────────────────────────────────────────────────────────
@@ -53,7 +53,7 @@ def process_frame(img_bgr: np.ndarray,
     kpts = res.keypoints.data[0]
     la   = calculate_angle_cosine(kpts[lidx[0]], kpts[lidx[1]], kpts[lidx[2]])
     ra   = calculate_angle_cosine(kpts[ridx[0]], kpts[ridx[1]], kpts[ridx[2]])
-    angle = float(min(la, ra))          # cast → python float
+    angle = float(min(la, ra))
 
     # ── rep-counter (3-frame debounce)
     if session["state"] == "relaxed" and angle < keep:
@@ -122,7 +122,6 @@ async def websocket_endpoint(ws: WebSocket, exercise: str):
             if result.get("skip"):
                 continue
 
-            # ******* key line: use json.dumps with default=pyify *******
             await ws.send_text(json.dumps(result, default=pyify))
 
     except WebSocketDisconnect:

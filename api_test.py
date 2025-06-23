@@ -1,13 +1,8 @@
-"""
-api_test.py – quick webcam tester for FastAPI pose WS
-Run: python api_test.py [ws://host:port/ws/bicep_curl] [cam_id]
-"""
-
 import asyncio, base64, json, sys, time, cv2, numpy as np, websockets
 
 URI     = sys.argv[1] if len(sys.argv) >= 2 else "ws://127.0.0.1:8000/ws/bicep_curl"
 CAM_ID  = int(sys.argv[2]) if len(sys.argv) >= 3 else 0         # built-in cam =0, phone cam =1/2
-JPEG_Q  = 80                                                    # compression quality (0-100)
+JPEG_Q  = 80
 
 def encode_jpeg(bgr):
     ok, buf = cv2.imencode(".jpg", bgr, [int(cv2.IMWRITE_JPEG_QUALITY), JPEG_Q])
